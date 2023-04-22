@@ -1,6 +1,6 @@
 <h1 align="center">
     <img src="https://github.com/mscaudill/datarig/blob/master/docs/imgs/logo.png" 
-    style="width:600px;height:auto;"/>
+    style="width:800px;height:auto;"/>
 </h1>
 
 <h2 align="center">
