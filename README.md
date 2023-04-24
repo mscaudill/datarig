@@ -38,21 +38,54 @@
 # THIS PROJECT HAS YET TO BE RELEASED. PLEASE CHECK BACK SOON!
 
 # Key Features
-Providing large testing and demo data alongside your code package releases can
-be a challenge for two reasons. First, code repositories have strict limits on
-the sizes of files you can include. Second, you don't want your users to wait
-forever for your cool package to install because of large files you've
-included in the installation. If you're a python developer and have hit these
-problems then <b><a href=https://github.com/mscaudill/datarig
-target=_blank>DataRig</a></b> is for you.  DataRig allows you to programmatically
-move data from several data repositories into local directories of your
-package such as a testing or demos folder after installation of your package.
-This allows your package to fetch the needed data just-in-time for your users.
+Providing large testing and demo data alongside your package releases is
+challenging for two reasons. First, code repositories have strict limits on file
+sizes. Second, you don't want your users to wait forever to download your cool
+package because you've included large data files.  If you're a python developer
+and have hit these issues then <b><a href=https://github.com/mscaudill/datarig
+target=_blank>DataRig</a></b> is for you.  DataRig allows you to
+move data from several data repositories into the users local directories
+post-installation. This "just-in-time" data fetching is perfect for users to
+test or run your packages demos.
 
 # Installation
-DataRig only requires the requests library making installation a breeze. To
-install 
+DataRig can be installed into your projects environment using pip:
 
+1. Activate the virtual or conda environment of your package
+```Shell
+$ source <YOUR_ENV>/bin/activate # python virtual environment
+```
+
+```Shell
+$ conda activate <YOUR_ENV>
+```
+
+2. Install DataRig to your active environment
+```Shell
+(<YOUR_ENV>)$ pip install datarig
+```
+
+# Dependencies
+
+DataRig is super lightweight requiring just <b>Python <span>&#8805;</span>
+3.9</b> and the request library available here:
+
+<table>
+
+<tr>
+    <th>package</th>
+    <th>pypi</th>
+    <th>conda</th>
+  </tr>
+
+<tr>
+    <td><a href="https://requests.readthedocs.io/en/latest/" 
+        target=_blank>requests</a></td>
+    <td>https://pypi.org/project/requests/</td>
+    <td align='center'><span>&#10003;</span></td>
+  </tr>
+
+</table>
 
 Contributions are what makes open-source fun and we would love for you to
 contribute. Please check out our [contribution guide](
