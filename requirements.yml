@@ -1,0 +1,29 @@
+# DataRig common requirements
+name: datarig
+dependencies:
+    - requests
+    - ipython
+    - notebook
+    # testing
+    - pytest
+    - pytest-cov
+    # Linting
+    - isort
+    - mypy
+    - pylint
+    - pip
+    - pip:
+      # spell checking
+      - codespell 
+      # versioning
+      - bumpver
+      # doc builders
+      - mkdocs
+      - mkdocs-material
+      - "mkdocstrings[python]"
+      - mkdocs-jupyter
+      # packaging
+      - pip-tools
+      - build
+      - twine
+
