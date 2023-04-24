@@ -87,6 +87,16 @@ DataRig is super lightweight requiring just <b>Python <span>&#8805;</span>
 
 </table>
 
+# Documentation
+
+# Attribution
+If you find DataRig useful, please cite the Zenodo archive of this repository.
+
+If you really like DataRig, you can also star the <a
+href=https://github.com/mscaudill/datarig>repository</a> 
+<span>&#11088;</span>!
+
+# Contributions
 Contributions are what makes open-source fun and we would love for you to
 contribute. Please check out our [contribution guide](
 https://github.com/mscaudill/datarig/blob/master/.github/CONTRIBUTING.md)
