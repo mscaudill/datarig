@@ -1,6 +1,6 @@
 # Contributing
 
-**Thank you for your interest in making Openseize better!**
+**Thank you for your interest in making DataRig better!**
 
 - [Contributing Etiquette](#contributing-etiquette)
 - [Creating an Issue](#creating-an-issue)
@@ -75,7 +75,7 @@ files.
 
 After adding to or modifying Openseize's source code, we ask that you update
 the mkdocs [documentation pages](
-https://github.com/mscaudill/openseize/tree/master/docs) and submit those
+https://github.com/mscaudill/datarig/tree/master/docs) and submit those
 changes with your pull request. This will allow us to more quickly get your
 new features integrated with Openseize.
 
