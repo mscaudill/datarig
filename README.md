@@ -4,7 +4,6 @@
 </h1>
 
 <h2 align="center">
-  <i><font color='gray'>Simplified Downloading from Data Repositories with RESTful APIs</font></i>
 </h2>
 
 <p align="center">
@@ -35,7 +34,7 @@
 </p>
 
 
-# THIS PROJECT HAS YET TO BE RELEASED. PLEASE CHECK BACK SOON!
+## THIS PROJECT HAS YET TO BE RELEASED. PLEASE CHECK BACK SOON!
 
 # Key Features
 Providing large testing and demo data alongside your package releases is
