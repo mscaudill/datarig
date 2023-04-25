@@ -4,8 +4,6 @@
 </h1>
 
 <h2 align="center">
-</h2>
-
 <p align="center">
   <a href="https://github.com/mscaudill/datarig/blob/master/LICENSE"><img
     src="https://img.shields.io/badge/License-BSD%203--Clause-teal" 
@@ -20,6 +18,7 @@
     alt="Pull Request Welcomed!" />
   </a>
 </p>
+</h2>
 
 <p align="center"  style="font-size: 20px">
 <a href="#Key-Features">Key Features</a>   |  
