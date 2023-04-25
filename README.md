@@ -21,14 +21,13 @@
 </h2>
 
 <p align="center"  style="font-size: 20px">
-<a href="#Key-Features">Key Features</a>   |  
+<a href="#Key-Features">Features</a>   |  
 <a href="#Installation">Installation</a>   |  
 <a href="#Dependencies">Dependencies</a>   |  
 <a href="#Documentation">Documentation</a>   |  
 <a href="#Attribution">Attribution</a>   |  
 <a href="#Contributions">Contributions</a>   |  
 <a href="#Issues">Issues</a>   |  
-<a href="#License">License</a> |
 <a href="#Acknowledgements">Acknowledgements</a> 
 </p>
 
@@ -106,10 +105,6 @@ DataRig provides custom issue templates for filing bugs, requesting
 feature enhancements, suggesting documentation changes, or just asking
 questions. *Ready to discuss?* File an issue <a
 href=https://github.com/mscaudill/datarig/issues/new/choose>here</a>. 
-
-# License
-
-DataRig is licensed under the terms of the 3-Clause BSD License.
 
 # Acknowledgements
 
