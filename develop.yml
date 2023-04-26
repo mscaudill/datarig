@@ -1,5 +1,5 @@
-# DataRig common requirements
-name: datarig
+# DataRig development requirements
+name: datarig-dev
 dependencies:
     - requests
     - ipython
@@ -13,15 +13,11 @@ dependencies:
     - pylint
     - pip
     - pip:
+      - types-requests
       # spell checking
       - codespell 
       # versioning
       - bumpver
-      # doc builders
-      - mkdocs
-      - mkdocs-material
-      - "mkdocstrings[python]"
-      - mkdocs-jupyter
       # packaging
       - pip-tools
       - build
