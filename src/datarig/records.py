@@ -12,7 +12,7 @@ this module contains the following concrete record types:
 Examples:
 
     >>> # All Records need a url for the data repository
-    >>> url = 'https://zenodo.org/api/records/6799475'
+    >>> url = 'http://zenodo.org/api/records/6799475'
     >>> from datarig import Zenodo
     >>> record = Zenodo(url)
     >>> # print the record
