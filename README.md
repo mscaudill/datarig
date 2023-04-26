@@ -13,6 +13,11 @@
     src="https://img.shields.io/pypi/pyversions/openseize?logo=python&logoColor=gold" 
     alt="Python versions supported." />
   </a>
+<a href="https://github.com/mscaudill/openseize/actions/workflows/test.yml"><img 
+    src="https://img.shields.io/github/actions/workflow/status/mscaudill/datarig/test.yml?label=CI&logo=github" 
+    alt="DataRig's test status" />
+  </a>
+
  <a href="https://github.com/mscaudill/datarig/pulls"><img 
     src="https://img.shields.io/badge/PRs-welcome-F8A3A3"
     alt="Pull Request Welcomed!" />
@@ -41,9 +46,9 @@ sizes. Second, you don't want your users to wait forever to download your cool
 package because you've included large data files.  If you're a python developer
 and have hit these issues then <b><a href=https://github.com/mscaudill/datarig
 target=_blank>DataRig</a></b> is for you.  DataRig allows you to
-move data from several data repositories into the users local directories
+move data from web-based repositories into your user's local directories
 post-installation. This "just-in-time" data fetching is perfect for users to
-test or run your packages demos.
+test or run your package's demos.
 
 # Installation
 DataRig can be installed into your projects environment using pip:
