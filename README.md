@@ -34,7 +34,7 @@
 
 ## THIS PROJECT HAS YET TO BE RELEASED. PLEASE CHECK BACK SOON!
 
-# Key Features
+# Features
 Providing large testing and demo data alongside your package releases is
 challenging for two reasons. First, code repositories have strict limits on file
 sizes. Second, you don't want your users to wait forever to download your cool
