@@ -66,7 +66,7 @@ class Record(abc.ABC, ViewInstance):
         self.url = url
         # if no timeout -> set to (5s, 30s) for (connection, retrieval)
         self.timeout = kwargs.pop('timeout', (5, 30))
-        self.response = requests.get(url, timeout=self.timeout **kwargs)
+        self.response = requests.get(url, timeout=self.timeout, **kwargs)
         self._json: Dict[str, Any] = self.response.json()
         self.datasets = self.data()
 
