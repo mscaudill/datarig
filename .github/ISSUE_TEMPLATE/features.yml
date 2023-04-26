@@ -1,5 +1,5 @@
 name: 💡 Feature Request
-description: Suggest an idea for Openseize
+description: Suggest an idea for DataRig
 labels: [enhancement]
 title: "[FEAT]: <Title>"
 body:
@@ -51,7 +51,7 @@ body:
       description: > 
         By submitting this issue, you agree to follow our 
         [Code of Conduct](
-        https://github.com/mscaudill/openseize/blob/master/CODE_OF_CONDUCT.md)
+        https://github.com/mscaudill/datarig/blob/master/CODE_OF_CONDUCT.md)
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

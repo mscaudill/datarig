@@ -16,18 +16,18 @@
 ## Contributing Etiquette
 
 Please see our [Contributor Code of Conduct](
-https://github.com/mscaudill/openseize/blob/master/CODE_OF_CONDUCT.md) for
+https://github.com/mscaudill/datarig/blob/master/CODE_OF_CONDUCT.md) for
 information on our rules of conduct.
 
 ## Creating an Issue
 
 We have created [issue templates](
-https://github.com/mscaudill/openseize/issues) for:
+https://github.com/mscaudill/datarig/issues) for:
 
 - Asking questions
 - Filing bug reports
 - Making feature requests
-- Improving Openseize's documentation
+- Improving DataRig's documentation
 
 These templates have required fields that will encourage you to be as
 specific as possible in defining the issue you want help with. We ask that
@@ -50,15 +50,15 @@ you use these templates whenever possible.
 
 ### Setup
 
-1. Open an issue to discuss the changes you would like to see in Openseize.
-2. Fork Openseize's master branch and create a local branch for your change.
+1. Open an issue to discuss the changes you would like to see in DataRig.
+2. Fork DataRig's master branch and create a local branch for your change.
 3. Sumbit your fantastic PR!
 
 ### Modifications
 
-When modifying Openseize, please follow [Google's code style](
+When modifying DataRig, please follow [Google's code style](
 https://google.github.io/styleguide/pyguide.html) for documenting modules,
-classes and functions. Additionally, Openseize is transitioning to using
+classes and functions. Additionally, DataRig is transitioning to using
 type annotations. When adding new code or modifying existing code that
 lacks annotations, we ask that you use annotations or insert them as needed.
 All pull request will have isort, pylint and mypy automatically run during
@@ -66,18 +66,10 @@ a merge so please run each of these code quality checkers/formatters on the
 files you change prior to submitting your pull request. You can create
 a development environment in conda or venv by using our development
 environments defined in the [develop.yml](
-https://github.com/mscaudill/openseize/blob/master/develop.yml) (conda) or
+https://github.com/mscaudill/datarig/blob/master/develop.yml) (conda) or
 [pyproject.toml](
-https://github.com/mscaudill/openseize/blob/master/pyproject.toml) (pip)
+https://github.com/mscaudill/datarig/blob/master/pyproject.toml) (pip)
 files.
-
-### Updating Documentation
-
-After adding to or modifying Openseize's source code, we ask that you update
-the mkdocs [documentation pages](
-https://github.com/mscaudill/datarig/tree/master/docs) and submit those
-changes with your pull request. This will allow us to more quickly get your
-new features integrated with Openseize.
 
 ### Review Process
 
@@ -89,7 +81,7 @@ To expedite a review of your pull request, we ask that:
 
 ## Commit Message Guide
 
-While building Openseize, we discovered a need for greater clarity in our
+While building DataRig, we discovered a need for greater clarity in our
 commit messages. This led us to discover the [angular](
 https://gist.github.com/brianclements/841ea7bffdb01346392c) commit message
 guide. We are starting to follow this guide and would encourage you to
