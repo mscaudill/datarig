@@ -1,5 +1,5 @@
 """Records are the primary data type in DataRig. A Record is a representation of
-all the data and metadata associated with a data respository. Each Record type,
+all the data and metadata associated with a data repository. Each Record type,
 no matter the repository server, has a Datasets sequence attribute. Each Dataset 
 object in the Datasets sequence represents a single data file in the repository. 
 
@@ -28,10 +28,12 @@ Examples:
 
 import abc
 from pathlib import Path
-import requests
-from typing import ByteString, Dict, List, Optional, Sequence, Union
+from typing import Any, Dict, List, Optional, Sequence, Union
 
-from datarig.mixins import ViewInstance, ViewContainer
+import requests
+
+from datarig.mixins import ViewContainer
+from datarig.mixins import ViewInstance
 
 
 class Record(abc.ABC, ViewInstance):
@@ -43,29 +45,30 @@ class Record(abc.ABC, ViewInstance):
     abstract method in their concrete Record classes. 
     """
 
-    def __init__(self, url: str,
-                 params: Optional[Union[Dict, List, ByteString]] = None,
-                 **kwargs,
-    ) -> None:
-        """Initialize this Record with a respository url where all datasets are
+    def __init__(self, url: str, **kwargs) -> None:
+        """Initialize this Record with a repository url where all datasets are
         housed & all additional parameters for a properly authorized GET
         request.
 
         Args:
-            repo_url:
+            url:
                 A string url for a data repository.
             params:
                 Additional information to include in the URL string with GETs
                 request such as search terms that appear in the URL. For details
                 see https://requests.readthedocs.io/en/latest/user/quickstart/
             kwargs:
-                Any additional kwargs for requests GET method.
+                Any additional kwargs for requests GET method. This may include
+                parameters for the URL string sent with GET. For details see
+                https://requests.readthedocs.io/en/latest/user/quickstart/
         """
-        
+
         self.url = url
-        self.response = requests.get(url, params, **kwargs)
-        self._json = self.response.json()
-        self.datasets = self.data() 
+        # if no timeout -> set to (5s, 30s) for (connection, retrieval)
+        self.timeout = kwargs.pop('timeout', (5, 30))
+        self.response = requests.get(url, timeout=self.timeout **kwargs)
+        self._json: Dict[str, Any] = self.response.json()
+        self.datasets = self.data()
 
     @abc.abstractmethod
     def data(self) -> Sequence['Dataset']:
@@ -89,11 +92,11 @@ class Record(abc.ABC, ViewInstance):
         for dset in self.datasets:
             if dset.name.lower() == name.lower():
                 return dset
-        else:
-            msg = 'No dataset with name {} is present in this Record.'
-            raise ValueError(msg.format(name))
 
-    def download(self, 
+        msg = 'No dataset with name {} is present in this Record.'
+        raise ValueError(msg.format(name))
+
+    def download(self,
                  directory: str,
                  name: Optional[str],
                  chunksize: int = 2048,
@@ -119,19 +122,22 @@ class Record(abc.ABC, ViewInstance):
                 Any valid kwarg for requests get method.
         """
 
+        timeout = kwargs.pop('timeout', self.timeout)
         dsets = [self.locate(name)] if name else self.datasets
         for dset in dsets:
             print(f'Saving {dset.name} to {directory}')
-            dset.download(directory, chunksize, stream, **kwargs)
+            dset.download(directory, chunksize, stream, timeout=timeout, **kwargs)
 
 
+# Dataset is a simple container type with only download method
+# pylint: disable-next=too-few-public-methods
 class Dataset(ViewContainer):
     """A container for describing & downloading a single dataset from a
     RESTful api Repository.
 
     Attributes:
         name:
-            The string name of this dataum.
+            The string name of this datum.
         link:
             The url to this datum in the Repository.
         size:
@@ -140,7 +146,7 @@ class Dataset(ViewContainer):
             The file type (extension) of this datum.
     """
 
-    def __init__(self, 
+    def __init__(self,
                  name: str,
                  link: str,
                  size: int,
@@ -169,7 +175,7 @@ class Dataset(ViewContainer):
         self.file_type = file_type
         self.__dict__.update(**kwargs)
 
-    def download(self, 
+    def download(self,
                  directory: str,
                  chunksize: Optional[int] = 2048,
                  stream: bool = True,
@@ -184,7 +190,7 @@ class Dataset(ViewContainer):
             chunksize:
                 The number of bytes that should be read into memory at any time
                 during the saving process. If None it will use whatever size
-                chunks are recieved from the server.
+                chunks are received from the server.
             stream:
                 Boolean indicating if the dataset should be iteratively
                 downloaded.
@@ -198,7 +204,8 @@ class Dataset(ViewContainer):
         target = Path(save_dir).joinpath(self.name)
 
         # get the dataset url's response & write
-        r = requests.get(self.link, stream=stream, **kwargs)
+        timeout = kwargs.pop('timeout', (5, 30))
+        r = requests.get(self.link, stream=stream, timeout=timeout, **kwargs)
         with open(target, 'wb') as outfile:
 
             if stream:
@@ -236,7 +243,7 @@ class Zenodo(Record):
         """
 
         datafiles = self._json['files']
-        
+
         results = []
         for dic in datafiles:
             name = dic['key']
@@ -245,52 +252,52 @@ class Zenodo(Record):
             file_type = dic['type']
             results.append(Dataset(name, link, size, file_type))
         return results
-    
+
     @property
-    def doi(self) -> str:
+    def doi(self):
         """Returns the DOI of this Record."""
 
         return self._json['doi']
 
     @property
-    def date(self) -> str:
+    def date(self):
         """Returns the publication date of this Record."""
 
         return self._json['metadata']['publication_date']
 
     @property
-    def license(self) -> str:
+    def license(self):
         """Returns the license of this Record."""
 
         return self._json['metadata']['license']['id']
 
     @property
-    def creators(self) -> Sequence[Dict]:
+    def creators(self):
         """Returns a sequence of dictionaries with author information."""
 
         return self._json['metadata']['creators']
 
     @property
-    def description(self) -> str:
+    def description(self):
         """Returns a string description of this data Record."""
 
         return self._json['metadata']['description']
 
     @property
-    def statistics(self) -> Dict:
+    def statistics(self):
         """Returns a dict containing this Record's statistics."""
 
         return self._json['stats']
 
-    
+
 if __name__ == '__main__':
 
-    url = 'https://zenodo.org/api/records/6799475'
-    
+    REPO_URL = 'https://zenodo.org/api/records/6799475'
+
     """
     response = requests.get(url, stream=True)
     jstr = response.json()
     print(jstr.keys())
     """
-    
-    zen = Zenodo(url)
+
+    zen = Zenodo(REPO_URL)
