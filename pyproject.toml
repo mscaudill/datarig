@@ -44,7 +44,7 @@ dev = ["isort",
     "build",
     "twine"
 ]
-test = ["pytest", "pytest-cov"]
+test = ["numpy", "pytest", "pytest-cov"]
 
 [project.urls]
 Homepage = "https://github.com/mscaudill/datarig"
