@@ -97,6 +97,37 @@ $ ipython
 >>> url = 'http://zenodo.org/api/records/7868945'
 >>> record = Zenodo(url)
 ```
+This record contains all of the repositories information stored as attributes.
+To see everything at once, just print the record.
+```python
+>>> print(record)
+```
+You will see a datasets attribute with a list of Dataset objects. These Datasets
+contain the name, url link, size and file type of the datasets that can be
+downloaded from the repository record. Let's print each of them.
+```python
+>>> for dset in record.datasets:
+...     print(dset)
+```
+Notice that a Dataset instance describes the data but does not contain the
+actual data. To get the data to your machine, you call call the records
+'download' method. Let's get help for this method before calling it.
+```python
+>>> help(record.download)
+```
+To call this method we need a directory to place the downloaded data, the name
+of the dataset to download, the amount of memory to use during downloading
+(chunksize) and a boolean of whether the download should be streamed to disk.
+Streaming is usually the right choice since the files you will download are
+likely large. Let's download the "sample_arr.npy" file from this record into
+your current working dir.
+```python
+>>> from pathlib import Path
+>>> record.download(directory=None, name='sample_arr.npy')
+```
+
+That's it! You've just downloaded a dataset from a Zenodo record!
+
 
 # Attribution
 If you find DataRig useful, please cite the Zenodo archive of this repository.
