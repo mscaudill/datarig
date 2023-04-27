@@ -105,7 +105,7 @@ class Record(abc.ABC, ViewInstance):
         raise ValueError(msg.format(name))
 
     def download(self,
-                 directory: str,
+                 directory: Optional[str],
                  name: Optional[str],
                  chunksize: int = 2048,
                  stream: bool = True,
@@ -116,7 +116,8 @@ class Record(abc.ABC, ViewInstance):
         Args:
             directory:
                 The location where dataset(s) should be saved to. The filenames
-                will match the names as they appear in the repository.
+                will match the names as they appear in the repository. If None,
+                the directory will be set to the current working dir.
             name:
                 The string name of a dataset to download. If None, all datasets
                 in this Record will be downloaded to directory.
@@ -130,11 +131,13 @@ class Record(abc.ABC, ViewInstance):
                 Any valid kwarg for requests get method.
         """
 
+        save_dir = Path(directory) if directory else Path().cwd()
+
         timeout = kwargs.pop('timeout', self.timeout)
         dsets = [self.locate(name)] if name else self.datasets
         for dset in dsets:
-            print(f'Saving {dset.name} to {directory}')
-            dset.download(directory, chunksize, stream, timeout=timeout, **kwargs)
+            print(f'Saving {dset.name} to {save_dir}')
+            dset.download(save_dir, chunksize, stream, timeout=timeout, **kwargs)
 
 
 # Dataset is a simple container type with only download method
