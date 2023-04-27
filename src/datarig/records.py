@@ -9,10 +9,18 @@ this module contains the following concrete record types:
     - Zenodo
 ```
 
+The corresponding API url endpoints needed to retrieve a specific record are:
+```
+    Zenodo:
+        https://zenodo.org/api/records/:id
+        please see https://developers.zenodo.org/#records
+        No authentication required.
+```
+
 Examples:
 
     >>> # All Records need a url for the data repository
-    >>> url = 'http://zenodo.org/api/records/6799475'
+    >>> url = 'http://zenodo.org/api/records/7868945'
     >>> from datarig import Zenodo
     >>> record = Zenodo(url)
     >>> # print the record
@@ -28,7 +36,7 @@ Examples:
 
 import abc
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Union
+from typing import Any, Dict, List, Optional, Sequence
 
 import requests
 
@@ -52,7 +60,7 @@ class Record(abc.ABC, ViewInstance):
 
         Args:
             url:
-                A string url for a data repository.
+                A string url for the API endpoint to a specific record.
             params:
                 Additional information to include in the URL string with GETs
                 request such as search terms that appear in the URL. For details
@@ -288,16 +296,3 @@ class Zenodo(Record):
         """Returns a dict containing this Record's statistics."""
 
         return self._json['stats']
-
-
-if __name__ == '__main__':
-
-    REPO_URL = 'https://zenodo.org/api/records/6799475'
-
-    """
-    response = requests.get(url, stream=True)
-    jstr = response.json()
-    print(jstr.keys())
-    """
-
-    zen = Zenodo(REPO_URL)
