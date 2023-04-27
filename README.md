@@ -88,7 +88,10 @@ DataRig is super lightweight requiring just <b>Python <span>&#8805;</span>
 Using DataRig to access a repository is simple. Just build a <b>Record</b>
 instance and all the data will be at your fingertips. Here's how to do it for
 a sample Zenodo repository:
+```Shell
+$ ipython
 ```
+```python
 >>> from datarig import Zenodo
 >>> # set the url to the api endpoint url for the record id 7868945
 >>> url = 'http://zenodo.org/api/records/7868945'
