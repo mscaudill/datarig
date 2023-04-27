@@ -34,9 +34,6 @@
 <a href="#Acknowledgements">Acknowledgements</a> 
 </p>
 
-
-## THIS PROJECT HAS YET TO BE RELEASED. PLEASE CHECK BACK SOON!
-
 # Features
 Providing large testing and demo data alongside your package releases is
 challenging for two reasons. First, code repositories have strict limits on file
@@ -88,6 +85,15 @@ DataRig is super lightweight requiring just <b>Python <span>&#8805;</span>
 </table>
 
 # Documentation
+Using DataRig to access a repository is simple. Just build a <b>Record</b>
+instance and all the data will be at your fingertips. Here's how to do it for
+a sample Zenodo repository:
+```
+>>> from datarig import Zenodo
+>>> # set the url to the api endpoint url for the record id 7868945
+>>> url = 'http://zenodo.org/api/records/7868945'
+>>> record = Zenodo(url)
+```
 
 # Attribution
 If you find DataRig useful, please cite the Zenodo archive of this repository.
