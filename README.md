@@ -9,7 +9,7 @@
     alt="DataRig is released under the BSD 3-Clause license." />
   </a>
   <a href="https://github.com/mscaudill/datarig/tree/master#Dependencies"><img 
-    src="https://img.shields.io/pypi/pyversions/openseize?logo=python&logoColor=gold" 
+    src="https://img.shields.io/pypi/pyversions/datarig?logo=python&logoColor=gold" 
     alt="Python versions supported." />
   </a>
 <a href="https://github.com/mscaudill/openseize/actions/workflows/test.yml"><img 
