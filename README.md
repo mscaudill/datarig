@@ -4,6 +4,9 @@
 </h1>
 
 <p align="center">
+<a href="https://zenodo.org/badge/latestdoi/631303318"><img 
+    src="https://zenodo.org/badge/631303318.svg" alt="DOI">
+  </a>
   <a href="https://github.com/mscaudill/datarig/blob/master/LICENSE"><img
     src="https://img.shields.io/badge/License-BSD%203--Clause-teal" 
     alt="DataRig is released under the BSD 3-Clause license." />
