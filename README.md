@@ -126,7 +126,7 @@ your current working dir.
 >>> record.download(directory=None, name='sample_arr.npy')
 ```
 
-That's it! You've just downloaded a dataset from a Zenodo record!
+That's it! You've just downloaded a dataset from a Zenodo record :sunglasses:
 
 
 # Attribution
