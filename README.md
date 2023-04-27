@@ -16,7 +16,6 @@
     src="https://img.shields.io/github/actions/workflow/status/mscaudill/datarig/test.yml?label=CI&logo=github" 
     alt="DataRig's test status" />
   </a>
-
  <a href="https://github.com/mscaudill/datarig/pulls"><img 
     src="https://img.shields.io/badge/PRs-welcome-F8A3A3"
     alt="Pull Request Welcomed!" />
